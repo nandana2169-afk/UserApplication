@@ -1,7 +1,13 @@
-class User{
-  String name;
-  String phone;
-  int age;
+class User {
+  final String name;
+  final String phone; 
+  final int age;
+  final String image;
 
-  User({required this.name,required this.phone,required this.age});
+  User({
+    required this.name,
+    required this.phone,
+    required this.age,
+    required this.image,
+  });
 }
