@@ -13,12 +13,12 @@ class _OtpscreenState extends State<Otpscreen> {
   final TextEditingController otpController = TextEditingController();
 
   Timer? timer;
-  int secondsRemaining = 52; // ✅ added
+  int secondsRemaining = 52;
 
   @override
   void initState() {
     super.initState();
-    startTimer(); // ✅ added
+    startTimer();
   }
 
   void startTimer() {
@@ -52,7 +52,6 @@ class _OtpscreenState extends State<Otpscreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
-           
             children: [
               const SizedBox(height: 50),
 
@@ -60,7 +59,8 @@ class _OtpscreenState extends State<Otpscreen> {
 
               const SizedBox(height: 30),
 
-              Align(alignment: Alignment.centerLeft,
+              Align(
+                alignment: Alignment.centerLeft,
                 child: const Text(
                   'OTP Verification',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -81,7 +81,7 @@ class _OtpscreenState extends State<Otpscreen> {
                 length: 6,
                 controller: otpController,
                 keyboardType: TextInputType.number,
-             
+
                 textStyle: const TextStyle(
                   color: Colors.red,
                   fontSize: 18,
@@ -105,7 +105,6 @@ class _OtpscreenState extends State<Otpscreen> {
 
               const SizedBox(height: 20),
 
-              // 🔴 RED TIMER TEXT (added back)
               Center(
                 child: Text(
                   '$secondsRemaining sec',
@@ -118,23 +117,27 @@ class _OtpscreenState extends State<Otpscreen> {
 
               const SizedBox(height: 30),
 
-             
-                  Align(alignment: Alignment.center,
-                    child: RichText(
-                      text: TextSpan(
-                        text: 'Don\t Get OTP?  ',
-                        style: TextStyle(color: Colors.black, fontSize: 15),
-                        children: [
-                          TextSpan(
-                            text: 'Resend',
-                            style: TextStyle(color: Colors.blue, fontSize: 15,decoration: TextDecoration.underline),
-                          ),
-                                   
-                                 ] ),
-                                  ),
-                  ), 
-                  SizedBox(height: 20,),
-                  SizedBox(
+              Align(
+                alignment: Alignment.center,
+                child: RichText(
+                  text: TextSpan(
+                    text: 'Don\t Get OTP?  ',
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                    children: [
+                      TextSpan(
+                        text: 'Resend',
+                        style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 15,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              SizedBox(
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
@@ -145,11 +148,16 @@ class _OtpscreenState extends State<Otpscreen> {
                       borderRadius: BorderRadius.circular(25),
                     ),
                   ),
-                  child:Text('Verify',style: TextStyle(color: Colors.white,fontSize: 18),)
-            ))] )  ,
+                  child: Text(
+                    'Verify',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
+              ),
+            ],
           ),
-        
-      
-    ));
+        ),
+      ),
+    );
   }
 }
